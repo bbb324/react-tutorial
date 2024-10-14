@@ -1,7 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
-import { terser } from 'rollup/plugin-terser';
+import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import babel from '@rollup/plugin-babel';
 import serve from 'rollup-plugin-serve';
@@ -16,7 +16,6 @@ export default [
         format: 'iife',
         sourcemap: true,
         name: 'app',
-        sourcemap: true,
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM'
@@ -36,14 +35,7 @@ export default [
         babelHelpers: 'bundled', // Include babel helpers in the bundle
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         include: ['src/**/*'],
-        presets: [
-          ['@babel/preset-env', { targets: { browser: ['last 2 versions'] } }],
-          '@babel/preset-react',
-          '@babel/preset-typescript'
-        ],
-        plugins: [
-          '@babel/plugin-proposal-class-properties',
-        ]
+
       }),
       terser(),
       postcss({

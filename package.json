@@ -6,7 +6,8 @@
   "module": "dist/toast.esm.js",
   "types": "src/Toast.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "dev": "rollup -c rollup.dev.mjs -w"
   },
   "keywords": [
     "react",
