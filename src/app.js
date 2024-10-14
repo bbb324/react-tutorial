@@ -1,10 +1,15 @@
-import React from 'react';
-
-import {
-    render
-} from 'react-dom'
+import React, { useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import { Button } from './index';
 
 const App = () => {
-    return <div>123</div>
+    useEffect(() => {
+        console.log(11)
+    }, [])
+    return <div>
+        <Button />
+    </div>
 }
-render(<App />, document.getElementById('app'));
+const container = document.getElementById('app');
+const root = createRoot(container);
+root.render(<App />);
