@@ -15,15 +15,8 @@
   ],
   "author": "Jun Xie",
   "license": "ISC",
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-sourcemaps": "^0.6.3",
-    "rollup-plugin-typescript2": "^0.36.0"
-  },
   "devDependencies": {
+    "@babel/core": "^7.25.8",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "rollup": "^3.29.5"
