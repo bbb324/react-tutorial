@@ -29,7 +29,7 @@ export default [
       postcss({
         extract: true,
         minimize: true,
-        modlues: false
+        modules: false
       }),
 
 
