@@ -45,12 +45,12 @@ export default {
     serve({
       open: true,
       contentBase: 'public',
-      port: 3000
+      port: 3001
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify('development'),
       preventAssignment: true
     })
   ],
-  external: ['react', 'react-dom'], // Externalize dependencies that won't be included in the bundle
+
 }
