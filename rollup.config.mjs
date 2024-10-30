@@ -4,36 +4,39 @@ import typescript from 'rollup-plugin-typescript2';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import babel from '@rollup/plugin-babel'
-
+const globals = {
+    react: 'React',
+    'react-dom': 'ReactDOM'
+}
 export default [
-  {
-    input: 'src/index.ts', // Entry point of your library
-    output: [
+    {
+        input: 'src/index.ts', // Entry point of your library
+        output: [
+            {
+                file: 'lib/index.js', // ES module build
+                format: 'umd',
+                name: 'ReactToast',
+                globals
+            },
+        ],
+        plugins: [
+            peerDepsExternal(),
+            resolve(), // So Rollup can find `node_modules` packages
+            commonjs(), // So Rollup can convert `commonjs` modules to ES modules
+            typescript({ tsconfig: './tsconfig.json' }),
+            babel({
+                exclude: 'node_modules/**', // Only transpile our source code
+                babelHelpers: 'bundled', // Include babel helpers in the bundle
+                extensions: ['.js', '.jsx', '.ts', '.tsx']
+            }),
+            postcss({
+                extract: true,
+                minimize: true,
+                modules: false
+            }),
 
-      {
-        file: 'lib/esm/index.esm.js', // ES module build
-        format: 'esm',
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      peerDepsExternal(),
-      resolve(), // So Rollup can find `node_modules` packages
-      commonjs(), // So Rollup can convert `commonjs` modules to ES modules
-      typescript({ tsconfig: './tsconfig.json' }),
-      babel({
-        exclude: 'node_modules/**', // Only transpile our source code
-        babelHelpers: 'bundled', // Include babel helpers in the bundle
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-      }),
-      postcss({
-        extract: true,
-        minimize: true,
-        modules: false
-      }),
 
-
-    ],
-    external: ['react', 'react-dom'], // Externalize dependencies that won't be included in the bundle
-  },
+        ],
+        external: ['react', 'react-dom']
+    },
 ];

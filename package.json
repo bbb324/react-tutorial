@@ -1,10 +1,16 @@
 {
-  "name": "react-tutorial",
-  "version": "1.0.0",
-  "description": "A simple React toast component",
-  "main": "dist/toast.js",
-  "module": "dist/toast.esm.js",
-  "types": "src/Toast.d.ts",
+  "name": "@bbb324/react-master-toast",
+  "version": "1.0.6",
+  "description": "",
+  "main": "lib/index.js",
+  "files": [
+    "/lib"
+  ],
+  "keywords": [
+    "react",
+    "toast",
+    "component"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
@@ -12,12 +18,7 @@
     "pub": "npm run build && npm publish --access public",
     "cypress:open": "cypress open"
   },
-  "keywords": [
-    "react",
-    "toast",
-    "component"
-  ],
-  "author": "Jun Xie",
+  "author": "JohnIgzie",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.25.8",
